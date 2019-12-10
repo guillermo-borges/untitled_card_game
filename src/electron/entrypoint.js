@@ -1,4 +1,7 @@
 const { app, BrowserWindow } = require("electron");
+const path = require("path");
+
+console.log("Here!");
 
 app.on("ready", () => {
     const w = new BrowserWindow({
@@ -9,5 +12,7 @@ app.on("ready", () => {
         }
     });
 
-    w.loadFile("../build/index_electron.html");
+    const p = path.resolve("build", "index.html");
+    console.log(p);
+    w.loadFile(p);
 });
