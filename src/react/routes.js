@@ -1,7 +1,7 @@
-import { Route, Switch } from "react-router-dom";
-import EditorPage from "src/components/editor/page";
+import { Route, Switch } from "react-router-dom"
+import EditorPage from "src/components/editor/page"
 
-import React from "react";
+import React from "react"
 
 export default () => <Switch>
     <Route path="/editor">

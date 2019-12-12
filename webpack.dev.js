@@ -1,8 +1,7 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const modules = require("./webpack_modules");
+const path = require("path")
+const webpack = require("webpack")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const modules = require("./webpack_modules")
 
 module.exports = {
     entry: path.resolve("src", "app.js"),

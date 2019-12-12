@@ -1,10 +1,10 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
-const HtmlWebpackChangeAssetsExtensionPlugin = require("html-webpack-change-assets-extension-plugin");
-const modules = require("./webpack_modules");
+const path = require("path")
+const webpack = require("webpack")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const CompressionPlugin = require("compression-webpack-plugin")
+const HtmlWebpackChangeAssetsExtensionPlugin = require("html-webpack-change-assets-extension-plugin")
+const modules = require("./webpack_modules")
 
 module.exports = {
     entry: path.resolve("src", "app.js"),

@@ -1,16 +1,14 @@
-import { animated as a, useSpring } from "react-spring";
+import React, { useState } from "react"
 
-import React, { useState } from "react";
+export default ({ playsets = [] }) => {
 
-export default ({ playsets = [], onChange = () => null }) => {
-
-    const [_playsets, _setPlayset] = useState(playsets);
+    const [_playsets] = useState(playsets)
 
     return <div>
         <ul>
-            {_playsets.map(playset => <li>
+            {_playsets.map(playset => <li key={playset.id}>
                 {playset.name}
             </li>)}
         </ul>
     </div>
-};
+}

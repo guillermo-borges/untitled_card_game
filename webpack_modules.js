@@ -1,6 +1,6 @@
 module.exports = {
     rules: [
-        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+        { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader", "eslint-loader"] },
         {
             test: /\.scss$/i,
             use: [
@@ -8,15 +8,15 @@ module.exports = {
                 {
                     loader: "css-loader", options: {
                         modules: {
-                            mode: 'local',
-                            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                            mode: "local",
+                            localIdentName: "[path][name]__[local]--[hash:base64:5]"
                         }
                     }
                 },
                 {
                     loader: "sass-loader", options: {
                         sassOptions: {
-                            includePaths: ['./src/scss']
+                            includePaths: ["./src/scss"]
                         }
                     }
                 }
@@ -31,4 +31,4 @@ module.exports = {
             ],
         }
     ]
-};
+}

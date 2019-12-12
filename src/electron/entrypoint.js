@@ -1,7 +1,7 @@
-const { app, BrowserWindow } = require("electron");
-const path = require("path");
+const path = require("path")
+const { app, BrowserWindow } = require("electron")
 
-console.log("Here!");
+console.log("Here!")
 
 app.on("ready", () => {
     const w = new BrowserWindow({
@@ -10,9 +10,9 @@ app.on("ready", () => {
         webPreferences: {
             nodeIntegration: true
         }
-    });
+    })
 
-    const p = path.resolve("build", "index.html");
-    console.log(p);
-    w.loadFile(p);
-});
+    const p = path.resolve("build", "index.html")
+    console.log(p)
+    w.loadFile(p)
+})
