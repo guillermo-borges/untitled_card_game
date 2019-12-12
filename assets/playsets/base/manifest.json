@@ -1,0 +1,6 @@
+{
+    "id": "playsets.base",
+    "name": "Default Playset",
+    "description": "What comes out of the box, but hey, there might be a fancy campaign description later...!",
+    "portraidId": "./portrait.png"
+}
