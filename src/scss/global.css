@@ -5,3 +5,8 @@
 .clear {
     clear : both;
 }
+
+body {
+    background-color: #333;
+    color: #eee;
+}

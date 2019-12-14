@@ -1,6 +1,5 @@
 .container {
     overflow: hidden;
-    background: rgb(75, 49, 83);
     position: absolute;
     top: 0px;
     left: 0px;
@@ -10,9 +9,6 @@
 
 .container .pannable {
     position: relative;
-    width: 4405px;
-    height: 2649px;
-    background-image: url("/assets/img/panzoom.jpg");
     overflow: auto;
     user-select: none;
 }

@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react"
+import { animated as a, useSpring } from "react-spring"
+import { useGameContext } from "src/models/game"
 
 import styles from "./panzoom.scss"
 
@@ -7,6 +9,7 @@ export default () => {
     const [loc, setLoc] = useState({ x: 35, y: 66.7 })
     const locRef = useRef(loc)
     const cursorRef = useRef({ x: 0, y: 0 })
+    const [{ turn }, game] = useGameContext()
 
     var onMouseMove = (e) => {
         let newCursor = { x: e.pageX, y: e.pageY }
@@ -38,10 +41,19 @@ export default () => {
         window.addEventListener("mousemove", onMouseMove)
     }
 
+    const spring = useSpring({
+        top: `${loc.y}px`,
+        left: `${loc.x}px`,
+        config: {
+            tension: 1000,
+            friction: 100
+        }
+    })
+
     return <div className={styles.container}>
-        <div onMouseDown={onMouseDown} style={{ top: `${loc.y}px`, left: `${loc.x}px` }} className={styles.pannable}>
-            <h1 >Blue-Eyes White Dragon</h1>
-            <button onClick={() => setLoc({ x: -10, y: -12 })}>Click me</button>
-        </div>
+        <a.div onMouseDown={onMouseDown} style={{ top: spring.top, left: spring.left }} className={styles.pannable}>
+            <h1 >Current Turn: {turn}</h1>
+            <button onClick={() => game(g => g.nextTurn())}>Next Turn!</button>
+        </a.div>
     </div>
 }

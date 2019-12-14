@@ -1,8 +1,8 @@
-import { animated as a, useSpring } from "react-spring"
-
 import React, { useState } from "react"
-import styles from "./switch.scss"
+import { animated as a, useSpring } from "react-spring"
+import theme from "src/theme"
 
+import styles from "./switch.scss"
 
 export default ({ checked = false, onCheck = () => null }) => {
 
@@ -16,7 +16,7 @@ export default ({ checked = false, onCheck = () => null }) => {
 
     const knobSpring = useSpring({
         transform: _checked ? "translateX(30px)" : "translateX(0px)",
-        backgroundColor: _checked ? "rgb(202, 0, 0)" : "#aaa",
+        backgroundColor: _checked ? theme.colors.uiHighlight : theme.colors.uiBackgroundRecessed,
         config: {
             tension: 500
         }

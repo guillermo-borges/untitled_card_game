@@ -1,1 +1,0 @@
-const entrypoint = require("./src/electron/entrypoint");

@@ -1,3 +1,8 @@
+const sass = require("node-sass")
+const sassUtils = require("node-sass-utils")(sass)
+
+const theme = require("./src/theme")
+
 module.exports = {
     rules: [
         { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader", "eslint-loader"] },
@@ -16,7 +21,19 @@ module.exports = {
                 {
                     loader: "sass-loader", options: {
                         sassOptions: {
-                            includePaths: ["./src/scss"]
+                            includePaths: ["./src/scss"],
+                            functions: {
+                                "get($keys)": function (keys) {
+                                    keys = keys.getValue().split(".")
+                                    let result = theme
+                                    let i
+                                    for (i = 0; i < keys.length; i++) {
+                                        result = result[keys[i]]
+                                    }
+                                    result = sassUtils.castToSass(result)
+                                    return result
+                                }
+                            }
                         }
                     }
                 }

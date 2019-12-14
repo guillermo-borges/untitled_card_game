@@ -1,7 +1,7 @@
 const path = require("path")
 const { app, BrowserWindow } = require("electron")
 
-console.log("Here!")
+require("electron-reload")("build")
 
 app.on("ready", () => {
     const w = new BrowserWindow({

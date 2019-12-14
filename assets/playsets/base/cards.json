@@ -1,0 +1,87 @@
+[
+    {
+        "playset": "playsets.base",
+        "id": "base.cards.gold",
+        "types": [
+            "types.card",
+            "types.card.resource"
+        ],
+        "size": {
+            "width": 1,
+            "height": 1
+        },
+        "display": {
+            "title": "Gold",
+            "description": "After exchanging hands countless times, this minted gold has lost its luster, yet its value remains.",
+            "rarity": "base.rarity.common",
+            "color": "#ff9966",
+            "portrait": null,
+            "icon": null,
+            "vfx": null
+        },
+        "properties": {
+            "draggable": true,
+            "locked": false,
+            "frozen": 0,
+            "removable": true
+        },
+        "state": {
+            "startState": "default",
+            "stateChangeMode": "none",
+            "tokens": [],
+            "states": [
+                {
+                    "id": "default",
+                    "display": {},
+                    "requirements": [],
+                    "effects": [],
+                    "reahable": false,
+                    "cardProperties": {}
+                }
+            ]
+        }
+    },
+    {
+        "playset": "playsets.base",
+        "id": "base.cards.player",
+        "types": [
+            "types.card",
+            "types.card.actor",
+            "types.card.player"
+        ],
+        "size": {
+            "width": 1,
+            "height": 1
+        },
+        "display": {
+            "title": "Me",
+            "description": "A fledging existence about to flourish.",
+            "rarity": "base.rarity.common",
+            "color": "#6699ff",
+            "portrait": null,
+            "icon": null,
+            "vfx": null
+        },
+        "properties": {
+            "draggable": true,
+            "locked": false,
+            "frozen": 0,
+            "removable": false
+        },
+        "state": {
+            "startState": "default",
+            "stateChangeMode": "none",
+            "tokens": [],
+            "states": [
+                {
+                    "id": "default",
+                    "display": {},
+                    "requirements": [],
+                    "effects": [],
+                    "reahable": false,
+                    "cardProperties": {}
+                }
+            ]
+        }
+    }
+]
