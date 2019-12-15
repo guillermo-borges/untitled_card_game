@@ -29,6 +29,7 @@
 
 .menu h1 {
     font-size: 24pt;
+    text-shadow: 0px 0px 20px #F6E8EA;
 }
 
 .menu ul {
@@ -45,4 +46,9 @@
     font-size: 16pt;
     color: #F6E8EA;
     text-decoration: none;
+}
+
+.menu a:hover {
+    text-shadow: 0px 0px 10px #F6E8EA;
+    transition: 0.3s;
 }
