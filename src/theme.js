@@ -1,9 +1,22 @@
+const colors = {
+    arsenic: "#3B3B58",
+    isabelline: "#F6E8EA",
+    middleBlueGreen: "#2EC0F9",
+    eerieBlack: "#22181C",
+    darkSienna: "#36151E",
+    ceruelanBlue: "#3454D1",
+    magicPotion: "#FF4365",
+    cinereous: "#93827F"
+}
+
 module.exports = {
     colors: {
-        background: "rgb(75, 49, 83)",
-        uiBackground: "rgb(75, 49, 83)",
-        uiBackgroundRecessed: "rgb(43, 22, 49)",
-        uiForeground: "rgba(96,79,111,1)",
-        uiHighlight: "rgb(117, 227, 255)"
+        mainMenu: {
+            background: colors.arsenic,
+            menuBackground: colors.cinereous,
+            font: colors.arsenic,
+            particleColor: colors.middleBlueGreen,
+            particleGlow: colors.ceruelanBlue
+        }
     }
 }

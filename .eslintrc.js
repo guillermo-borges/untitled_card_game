@@ -45,7 +45,9 @@ module.exports = {
         "react/prop-types": "off",
         "no-implicit-coercion": "error",
         "no-useless-return": "error",
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "no-unused-vars": "off",
+        "no-constant-condition": "off"
     },
     "parser": "babel-eslint"
 };

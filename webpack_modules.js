@@ -1,8 +1,6 @@
 const sass = require("node-sass")
 const sassUtils = require("node-sass-utils")(sass)
 
-const theme = require("./src/theme")
-
 module.exports = {
     rules: [
         { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader", "eslint-loader"] },
@@ -25,7 +23,7 @@ module.exports = {
                             functions: {
                                 "get($keys)": function (keys) {
                                     keys = keys.getValue().split(".")
-                                    let result = theme
+                                    let result = require("./src/theme")
                                     let i
                                     for (i = 0; i < keys.length; i++) {
                                         result = result[keys[i]]
@@ -36,7 +34,9 @@ module.exports = {
                             }
                         }
                     }
-                }
+                },
+
+
             ]
         },
 
@@ -46,6 +46,13 @@ module.exports = {
                 { loader: "style-loader" },
                 { loader: "css-loader" }
             ],
-        }
+        },
+
+        {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: [
+                "file-loader",
+            ],
+        },
     ]
 }

@@ -7,6 +7,8 @@
 }
 
 body {
-    background-color: #333;
-    color: #eee;
+    overflow: hidden;
+    background-color: #3B3B58;
+    color: #F6E8EA;
+    font-family: 'Courier New', Courier, monospace
 }
