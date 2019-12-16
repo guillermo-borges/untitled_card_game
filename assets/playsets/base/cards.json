@@ -1,7 +1,7 @@
 [
     {
         "playset": "playsets.base",
-        "id": "base.cards.gold",
+        "assetId": "base.cards.gold",
         "types": [
             "types.card",
             "types.card.resource"
@@ -20,9 +20,6 @@
             "vfx": null
         },
         "properties": {
-            "draggable": true,
-            "locked": false,
-            "frozen": 0,
             "removable": true
         },
         "state": {
@@ -43,7 +40,7 @@
     },
     {
         "playset": "playsets.base",
-        "id": "base.cards.player",
+        "assetId": "base.cards.player",
         "types": [
             "types.card",
             "types.card.actor",
@@ -63,9 +60,6 @@
             "vfx": null
         },
         "properties": {
-            "draggable": true,
-            "locked": false,
-            "frozen": 0,
             "removable": false
         },
         "state": {

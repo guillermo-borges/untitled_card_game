@@ -10,5 +10,7 @@ body {
     overflow: hidden;
     background-color: #3B3B58;
     color: #F6E8EA;
-    font-family: 'Courier New', Courier, monospace
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none;
+    -webkit-user-drag: none;
 }

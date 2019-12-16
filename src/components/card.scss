@@ -1,0 +1,38 @@
+.container {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 300px;
+}
+
+.cardBody {
+    background-image: url("../../assets/img/textures/cardboard-flat.png");
+    background-color: #F6E8EA;
+    color: #22181C;
+    border-radius: 4px;
+    width: 190px;
+    height: 290px;
+    margin: 6px;
+    overflow: auto;
+    box-shadow: 1px 1px 1px 1px #22181C;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardTitle {
+    font-size: 12pt;
+    width: 160px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.cardImage {
+    background-image: url("../../assets/img/test-card.png");
+    background-position: center;
+    background-size: cover;
+    width: 190px;
+    height: 100%;
+    border-bottom: 2px solid #22181C;
+}

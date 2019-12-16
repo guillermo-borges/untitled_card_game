@@ -34,6 +34,7 @@ export default ({ children }) => {
     var onMouseUp = () => {
         cursorRef.current = {}
 
+        /*
         if (container.current != null) {
             const area = { width: pannable.current.offsetWidth, height: pannable.current.offsetHeight }
             const screen = { width: container.current.offsetWidth, height: container.current.offsetHeight }
@@ -56,15 +57,13 @@ export default ({ children }) => {
                 r.y = (area.height - Math.round(screen.height / 3))
             }
 
-            console.log(topLeft)
-            console.log(r)
-
             if (r.x != topLeft.x || r.y != topLeft.y) {
                 locRef.current.x = -r.x
                 locRef.current.y = -r.y
                 setLoc(locRef.current)
             }
         }
+        */
 
         window.removeEventListener("mouseup", onMouseUp)
         window.removeEventListener("mousemove", onMouseMove)

@@ -1,0 +1,38 @@
+[
+    {
+        "playset": "playsets.base",
+        "assetId": "base.tiles.spawn",
+        "types": [
+            "types.tile"
+        ],
+        "size": {
+            "width": 3,
+            "height": 3
+        },
+        "display": {
+            "title": "An abandoned warehouse",
+            "description": "I found this space by the outskirts of town. Finders keepers.",
+            "rarity": "base.rarity.common",
+            "color": "#ff9966",
+            "portrait": null,
+            "icon": null,
+            "vfx": null
+        },
+        "properties": {},
+        "state": {
+            "startState": "default",
+            "stateChangeMode": "none",
+            "tokens": [],
+            "states": [
+                {
+                    "id": "default",
+                    "display": {},
+                    "requirements": [],
+                    "effects": [],
+                    "reahable": false,
+                    "cardProperties": {}
+                }
+            ]
+        }
+    }
+]
