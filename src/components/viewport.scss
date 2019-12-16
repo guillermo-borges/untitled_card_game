@@ -19,7 +19,7 @@
 
 .container .pannable {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     width: fit-content;
     user-select: none;
 }

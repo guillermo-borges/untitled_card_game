@@ -4,20 +4,18 @@ import { loadAssets } from "./assets"
 
 const GameContext = createContext()
 
-const init = () => ({
-    assets: [],
-    entities: [],
-    board: {
-        width: 14,
-        height: 8
-    },
-    turn: 1,
-})
+const init = (s = {}) => {
+    s.assets = []
+    s.entities = []
+    s.turn = 1
+    s.gameId = null
+    return s
+}
 
 const copy = (state) => JSON.parse(JSON.stringify(state))
 
 const initProperties = (entity) => {
-    if (entity.type[0] == "types.card") {
+    if (entity.types[0] == "types.card") {
         entity.properties = {
             ...entity.properties,
             locked: 0,
@@ -30,7 +28,7 @@ const initProperties = (entity) => {
 }
 
 export const isColliding = (a, b, placeable = false) => {
-    if (a.type[0] != b.type[0] && !placeable) return false
+    if (a.types[0] != b.types[0] && !placeable) return false
     if (a.location.x >= b.location.x && a.location.x < b.location.x + b.size.width) return true
     if (b.location.x >= a.location.x && b.location.x < a.location.x + a.size.width) return true
     if (a.location.y >= b.location.y && a.location.y < b.location.y + b.size.height) return true
@@ -39,7 +37,7 @@ export const isColliding = (a, b, placeable = false) => {
 }
 
 export const getCollisions = (s, a, placeable = false) => s.entities.filter(x => {
-    if (a.type[0] != x.type[0]) return false
+    if (a.types[0] != x.types[0]) return false
     if (!isColliding(a, x, placeable)) return false
     return true
 })
@@ -49,8 +47,10 @@ const nextTurn = (s) => {
 }
 
 const newGame = (s) => {
-    s = init()
+    console.log("Starting new game")
+    init(s)
     s.assets = loadAssets()
+    s.gameId = uuid()
 
     const spawnTile = s.assets.find(x => x.assetId == "base.tiles.spawn")
     const playerCard = s.assets.find(x => x.assetId == "base.cards.player")
@@ -62,8 +62,12 @@ const newGame = (s) => {
 const spawn = (s, asset, location) => {
     const entity = JSON.parse(JSON.stringify(asset))
     entity.location = location
+    if (location.type == null) location.type = "field"
+
     if (getCollisions(s, entity).length > 0) throw new Error("errors.collision")
-    if (entity.type[0] == "types.card" && getCollisions(s, entity, true).length == 0) throw new Error("errors.noTile")
+
+    console.log(entity)
+    //if (entity.types[0] == "types.card" && getCollisions(s, entity, true).length == 0) throw new Error("errors.noTile")
 
     entity.entityId = uuid()
     entity.refs = {

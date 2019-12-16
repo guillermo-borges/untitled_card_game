@@ -1,15 +1,16 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { MemoryRouter as Router } from "react-router-dom"
+import { GameProvider } from "src/models/game"
 import Routes from "src/routes"
 
 import "./scss/global.css"
 import "./scss/normalize.css"
 
-const App = () => <div>
+const App = () => <GameProvider>
     <Router>
         <Routes />
     </Router>
-</div>
+</GameProvider>
 
 ReactDOM.render(<App />, document.getElementById("app"))
