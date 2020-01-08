@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useGameContext } from "src/models/game"
 import styles from "./tile.scss"
 
-export default ({ tile }) => {
+export default ({ tile, onDrag }) => {
 
     const style = {
         left: (tile.location.x * 200) + "px",
@@ -11,7 +11,7 @@ export default ({ tile }) => {
         height: (tile.size.height * 300) + "px"
     }
 
-    return <div className={styles.container} style={style}>
+    return <div className={styles.container} style={style} onMouseDown={onDrag}>
 
     </div>
 }

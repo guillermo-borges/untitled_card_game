@@ -10,13 +10,13 @@ const style = {
     left: (window.innerWidth / 2) - 100 + "px"
 }
 
-export default ({ children }) => {
+export default ({ children, panViewport }) => {
     const [gameState, game] = useGameContext()
     const cards = gameState.entities.filter(x => x.location.type == "field" && x.types[0] == "types.card")
     const tiles = gameState.entities.filter(x => x.location.type == "field" && x.types[0] == "types.tile")
 
     return <div className={styles.container} style={style}>
-        {tiles.map(t => <Tile key={t.entityId} tile={t} />)}
+        {tiles.map(t => <Tile key={t.entityId} tile={t} onDrag={panViewport} />)}
         {cards.map(c => <Card key={c.entityId} card={c} />)}
     </div>
 }
