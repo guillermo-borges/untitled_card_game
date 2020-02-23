@@ -15,7 +15,7 @@
             "description": "After exchanging hands countless times, this minted gold has lost its luster, yet its value remains.",
             "rarity": "base.rarity.common",
             "color": "#ff9966",
-            "portrait": null,
+            "portrait": "img/svg/coins.svg",
             "icon": null,
             "vfx": null
         },
@@ -55,7 +55,7 @@
             "description": "A fledging existence about to flourish.",
             "rarity": "base.rarity.common",
             "color": "#6699ff",
-            "portrait": null,
+            "portrait": "playsets/base/player.default.svg",
             "icon": null,
             "vfx": null
         },

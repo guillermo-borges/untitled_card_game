@@ -3,6 +3,7 @@ import path from "path"
 import _ from "lodash"
 
 const dirname = (f) => f.match(/(.*)[/\\]/)[1] || ""
+const cache = {}
 
 export const listAssets = (dir, filelist = []) => {
     fs.readdirSync(dir).forEach(file => {
@@ -37,3 +38,12 @@ export const loadAssets = (dir = "./assets/playsets") => {
 
     return results
 }
+
+export const loadImage = (p, dir = "./assets") => {
+    if (cache[p] != null) return cache[p]
+    const img = fs.readFileSync(path.join(dir, p)).toString("base64")
+    cache[p] = `data:image/png;base64,${img}`
+    return cache[p]
+}
+
+export const getRef = (path) => `file://assets/${path}`

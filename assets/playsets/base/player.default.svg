@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1000 1500" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" 
+    xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <path d="M0,1500c0,0 49.051,-398.05 100,-450c50.603,-51.598 100,-50 100,-50l600,0c0,0 48.024,-0.396 100,50c49.118,47.624 100,450 100,450l-1000,0Z" style="fill:#304a73;stroke:#000;stroke-opacity:0;stroke-width:0.5px;"/>
+    <path d="M300,450l-100,300c0,0 32.167,197.872 50,249.995l150,0.005l100,150l100,-150l150,-0.005l50,-249.995l-100,-300l-400,0Z" style="fill:#1a2435;stroke:#000;stroke-opacity:0;stroke-width:0.2px;"/>
+    <path d="M350,450c0,0 -58.333,175 -50,250c8.231,74.08 66.656,158.333 100,200c23.297,29.112 100.062,50 100.062,50c0,0 76.673,-20.91 99.938,-50c33.323,-41.667 91.769,-125.92 100,-200c8.333,-75 -50,-250 -50,-250l-300,0Z" style="fill:#6997c9;stroke:#fff;stroke-opacity:0;stroke-width:5px;"/>
+    <path d="M500,300c0,0 -102.576,-3.613 -250,150c-47.162,49.142 -101.477,204.021 -100,300c1.643,106.78 50,250 50,250l150,0c-45.236,-98.865 -102.102,-148.156 -100,-250c2.018,-97.738 58.333,-133.333 100,-150c41.667,-16.667 100.062,50 150.062,50c50,0 108.271,-66.667 149.938,-50c41.667,16.667 97.997,52.206 100,150c2.042,99.698 -52.056,151.897 -100,250l150,-0.005c0,0 49.146,-149.463 50,-249.995c0.83,-97.674 -52.316,-252.198 -100,-300c-151.103,-151.478 -250,-150 -250,-150Z" style="fill:#304a73;stroke:#000;stroke-opacity:0;stroke-width:0.5px;"/>
+    <path d="M400,1050c66.685,19.256 133.352,18.668 200,0" style="fill:none;stroke:#fff;stroke-width:5px;"/>
+    <path d="M450,1100c33.224,11.247 66.559,11.094 100,0" style="fill:none;stroke:#fff;stroke-width:5px;"/>
+    <path d="M499.985,1150l-99.985,350l200,0l-100.015,-350Z" style="fill:#1a2435;stroke:#fff;stroke-opacity:0;stroke-width:5px;"/>
+    <path d="M470.701,1150c20.611,12.791 40.158,12.465 58.722,0" style="fill:none;stroke:#fff;stroke-width:5px;"/>
+</svg>

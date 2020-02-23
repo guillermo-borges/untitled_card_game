@@ -10,7 +10,8 @@
                     "."
                 ],
                 "alias": {
-                    "src": "./src"
+                    "src": "./src",
+                    "assets": "./assets"
                 }
             }
         ]

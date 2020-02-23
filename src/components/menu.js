@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { useSpring, animated as a } from "react-spring"
 
-import { useGameContext } from "src/models/game"
+import { useContext as useGameContext } from "src/models/game"
 import styles from "./menu.scss"
 
 

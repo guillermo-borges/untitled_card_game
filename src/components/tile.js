@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useGameContext } from "src/models/game"
+import { useContext as useGameContext } from "src/models/game"
 import styles from "./tile.scss"
 
 export default ({ tile, onDrag }) => {

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 import { animated as a, useSpring } from "react-spring"
-import { useGameContext } from "src/models/game"
+import { useContext as useGameContext } from "src/models/game"
 
 import styles from "./panzoom.scss"
 

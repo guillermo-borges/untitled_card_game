@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useReducer } from "react"
+import React from "react"
 import uuid from "uuid/v4"
-import { loadAssets } from "./assets"
+import store from "src/hooks/store"
 
-const GameContext = createContext()
+import { loadAssets } from "./assets"
 
 const init = (s = {}) => {
     s.assets = []
@@ -12,22 +12,27 @@ const init = (s = {}) => {
     return s
 }
 
-const copy = (state) => JSON.parse(JSON.stringify(state))
-
 const initProperties = (entity) => {
-    if (entity.types[0] == "types.card") {
+    if (entity.types.includes("types.card")) {
         entity.properties = {
             ...entity.properties,
             locked: 0,
             frozen: 0,
-            draggable: true
+            pickableFrom: ["playmat", "deck", "resources"]
+        }
+    } else if (entity.types.includes("types.tile")) {
+        entity.properties = {
+            ...entity.properties,
+            pickableFrom: ["deck"]
         }
     } else {
-        entity.properties = {}
+        entity.properties = {
+            ...entity.properties,
+        }
     }
 }
 
-export const isColliding = (a, b, placeable = false) => {
+const isColliding = (a, b, placeable = false) => {
     if (a.types[0] != b.types[0] && !placeable) return false
     if (a.location.x >= b.location.x && a.location.x < b.location.x + b.size.width) return true
     if (b.location.x >= a.location.x && b.location.x < a.location.x + a.size.width) return true
@@ -36,11 +41,15 @@ export const isColliding = (a, b, placeable = false) => {
     return false
 }
 
-export const getCollisions = (s, a, placeable = false) => s.entities.filter(x => {
+const getCollisions = (s, a, placeable = false) => s.entities.filter(x => {
     if (a.types[0] != x.types[0]) return false
     if (!isColliding(a, x, placeable)) return false
     return true
 })
+
+export const find = (s, entity) => s.entities.find(e => e.entityId == entity.entityId)
+
+export const plane = (s, plane = "playmat") => s.entities.filter(e => e.location.plane == plane)
 
 const nextTurn = (s) => {
     s.turn = s.turn + 1
@@ -62,11 +71,11 @@ const newGame = (s) => {
 const spawn = (s, asset, location) => {
     const entity = JSON.parse(JSON.stringify(asset))
     entity.location = location
-    if (location.type == null) location.type = "field"
+    if (location.plane == null) location.plane = "playmat"
 
     if (getCollisions(s, entity).length > 0) throw new Error("errors.collision")
 
-    console.log(entity)
+    console.log("[Game] Entity Spawned", entity)
     //if (entity.types[0] == "types.card" && getCollisions(s, entity, true).length == 0) throw new Error("errors.noTile")
 
     entity.entityId = uuid()
@@ -79,21 +88,18 @@ const spawn = (s, asset, location) => {
     s.entities.push(entity)
 }
 
-const reducer = (state, callback) => {
-    let s = copy(state)
-    callback({
-        nextTurn: () => nextTurn(s),
-        newGame: () => newGame(s),
-        spawn: (asset, location) => spawn(s, asset, location)
+const pick = (s, entity) => {
+    const e = find(s, entity)
+    if (s.entities.find(e => e.location.plane == "hand")) return
+    if (!e.properties.pickableFrom.includes(e.location.plane) || e.properties.frozen > 0 || e.properties.locked > 0) return
 
-    })
-    return s
+    e.location.plane = "hand"
 }
 
-export const GameProvider = ({ children }) => (
-    <GameContext.Provider value={useReducer(reducer, init())}>
-        {children}
-    </GameContext.Provider>
-)
-
-export const useGameContext = () => useContext(GameContext)
+export const { Provider, useContext } = store(s => ({
+    state: s,
+    nextTurn: () => nextTurn(s),
+    newGame: () => newGame(s),
+    spawn: (asset, location) => spawn(s, asset, location),
+    pick: (entity) => pick(s, entity)
+}), init())

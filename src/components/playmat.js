@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import Card from "src/components/card"
 import Tile from "src/components/tile"
-import { useGameContext } from "src/models/game"
+import { useContext as useGameContext } from "src/models/game"
 
 import styles from "./playmat.scss"
 
@@ -12,8 +12,8 @@ const style = {
 
 export default ({ children, panViewport }) => {
     const [gameState, game] = useGameContext()
-    const cards = gameState.entities.filter(x => x.location.type == "field" && x.types[0] == "types.card")
-    const tiles = gameState.entities.filter(x => x.location.type == "field" && x.types[0] == "types.tile")
+    const cards = gameState.entities.filter(x => x.location.plane == "playmat" && x.types[0] == "types.card")
+    const tiles = gameState.entities.filter(x => x.location.plane == "playmat" && x.types[0] == "types.tile")
 
     return <div className={styles.container} style={style}>
         {tiles.map(t => <Tile key={t.entityId} tile={t} onDrag={panViewport} />)}
